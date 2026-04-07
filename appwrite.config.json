@@ -1,0 +1,34 @@
+{
+  "functions": [
+    {
+      "$id": "generateContent",
+      "name": "Generate AI Content",
+      "enabled": true,
+      "live": true,
+      "logging": true,
+      "runtime": "node-18.0",
+      "deployment": "latest",
+      "vars": [
+        {
+          "key": "GEMINI_API_KEY",
+          "value": ""
+        }
+      ],
+      "events": [],
+      "schedule": "",
+      "timeout": 30,
+      "entrypoint": "generateContent.js",
+      "commands": "npm install",
+      "version": "v1",
+      "path": "functions/generateContent"
+    }
+  ],
+  "projectId": "",
+  "endpoint": "https://cloud.appwrite.io/v1",
+  "sites": [],
+  "tablesDB": [],
+  "tables": [],
+  "buckets": [],
+  "teams": [],
+  "topics": []
+}

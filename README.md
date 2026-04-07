@@ -1,33 +1,248 @@
-# Welcome to your Expo app 👋
+# Creator Productivity AI - Complete Project
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A production-ready React Native mobile app built with Expo, TypeScript, Appwrite, and Google Gemini AI. Turn content ideas into scripts in seconds with AI assistance.
 
-## Get started
+## 🎯 Core Features
 
-1. Install dependencies
+### ✨ AI Idea Generator
 
-   ```bash
-   npm install
-   ```
+Generate viral content ideas for any niche in seconds. Each idea includes:
 
-2. Start the app
+- Catchy titles
+- Attention-grabbing hooks
+- Full descriptions
+- Category classification
 
-   ```bash
-   npx expo start
-   ```
+### 📝 AI Script Generator
 
-In the output, you'll find options to open the app in a
+Transform ideas into ready-to-shoot video scripts:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Short-form**: 60-90 second YouTube Shorts scripts
+- **Long-form**: 5-10 minute video scripts
+- Structure: Hook → Problem → Body → CTA
+- Word counts and timing estimates
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### 📅 Smart Content Planner
 
-## Get a fresh project
+Organize your content calendar with:
 
-When you're ready, run:
+- Schedule content by date
+- Track status (Scheduled → In Progress → Done)
+- Calendar integration
+- Realtime updates via Appwrite
+
+### ⏱️ Focus Mode
+
+Productivity timer with:
+
+- Customizable session lengths (15, 25, 45, 60 min)
+- Session history tracking
+- Gamified streak system
+- Break interval management
+
+### 📊 Progress Tracker
+
+Visualize your productivity:
+
+- Productivity score (0-100%)
+- Daily streak tracking (🔥)
+- Total posts count
+- Achievement badges
+- Longest streak record
+
+### 👤 User Profile & Settings
+
+- Account management
+- Achievement showcase
+- Stats overview
+- Logout option
+
+## 🏗️ Architecture
+
+### Frontend Stack
+
+- **React Native** 0.81 with Expo 54
+- **TypeScript** for type safety
+- **Expo Router** for navigation
+- **Zustand** for state management
+- **Reanimated** for animations
+- **React Native Gesture Handler** for gestures
+
+### Backend Integration
+
+- **Appwrite** for:
+  - Authentication (Email/Password + OAuth)
+  - Database (TablesDB)
+  - Realtime updates
+  - File storage
+  - Functions (optional)
+- **Google Gemini Pro** for AI content generation
+
+### Design System
+
+- Dark & Light mode support
+- Modern Gen-Z friendly UI
+- Smooth animations
+- Gradient cards
+- Custom components
+
+## 📦 Project Structure
+
+```
+creator-productivity-ai/
+├── app/ (Expo Router)
+│   ├── (auth)/
+│   │   ├── login.tsx
+│   │   ├── signup.tsx
+│   │   └── _layout.tsx
+│   ├── (tabs)/
+│   │   ├── index.tsx (Dashboard)
+│   │   ├── ideas.tsx
+│   │   ├── scripts.tsx
+│   │   ├── planner.tsx
+│   │   ├── explore.tsx (Focus)
+│   │   ├── profile.tsx
+│   │   └── _layout.tsx
+│   └── _layout.tsx
+├── components/ui/
+├── services/ (API integrations)
+├── store/ (Zustand state)
+├── types/ (TypeScript)
+├── config/ (Environment)
+└── constants/ (Design tokens)
+```
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Node.js 16+
+- Expo CLI
+- Appwrite account (free)
+- Google Gemini API key
+
+### Installation
+
+```bash
+# Clone and install
+git clone <repo>
+npm install
+
+# Configure environment
+cp .env.example .env
+# Edit .env with your API keys
+
+# Run the app
+npm start
+```
+
+## 📱 Test It Out
+
+1. **Sign Up**: Create account with email
+2. **Generate Ideas**: Pick a niche (e.g., "coding")
+3. **Create Scripts**: Turn ideas into video scripts
+4. **Plan Content**: Schedule upcoming videos
+5. **Track Progress**: Monitor productivity stats
+
+## 🔐 Authentication
+
+- Email/Password signup
+- Google OAuth (optional)
+- Role-based access (Free/Premium)
+- Persistent sessions
+
+## 💾 Database
+
+6 collections in Appwrite:
+
+- `users` - Accounts
+- `ideas` - AI-generated ideas
+- `scripts` - Video scripts
+- `plans` - Content calendar
+- `focus_sessions` - Productivity data
+- `streaks` - Achievement tracking
+
+## 🤖 AI Integration
+
+Uses **Google Gemini Pro**:
+
+- Content idea generation
+- Script writing
+- Trend analysis
+- Content improvement
+
+## 💰 Monetization Ready
+
+Feature flags implemented:
+
+- **Free Tier**: 5 ideas/day, 2 scripts/day
+- **Premium**: Unlimited AI, advanced analytics
+
+## 🎨 UI Highlights
+
+- Dark/Light mode
+- Modern card-based design
+- Smooth animations
+- Gen-Z friendly
+- Fully responsive
+
+## 📊 State Management
+
+Using **Zustand**:
+
+- `authStore` - User info, login/logout
+- `appStore` - Ideas, scripts, plans, streaks
+
+## 🧪 Test Accounts
+
+```
+Email: demo@example.com
+Password: Demo@123
+```
+
+## 📚 Documentation
+
+- `SETUP.md` - Complete setup guide
+- `APPWRITE_SETUP.md` - Database configuration
+- See code comments for architecture
+
+## 🚀 Deployment
+
+```bash
+# iOS
+eas build --platform ios
+
+# Android
+eas build --platform android
+
+# Web
+npm run build
+```
+
+## 🛣️ Roadmap
+
+- ✅ Core app
+- ✅ Authentication
+- ✅ AI generation
+- ✅ Content planning
+- ⏳ Real-time notifications
+- ⏳ Team collaboration
+- ⏳ Analytics
+- ⏳ Marketplace
+
+## 📄 License
+
+MIT - Free to use and modify
+
+## 🆘 Support
+
+Check `SETUP.md` for troubleshooting or see GitHub issues for common problems.
+
+---
+
+**Ready to scale your content creation?** 🚀
+
+Built with ❤️ using React Native, Appwrite, and Gemini AI.
 
 ```bash
 npm run reset-project
