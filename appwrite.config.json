@@ -1,34 +1,164 @@
 {
-  "functions": [
+  "projectId": "69d615110031fe23e7ca",
+  "projectName": "Creator Productivity AI",
+  "endpoint": "https://fra.cloud.appwrite.io/v1",
+  "settings": {
+    "services": {
+      "account": true,
+      "avatars": true,
+      "databases": true,
+      "locale": true,
+      "health": true,
+      "storage": true,
+      "teams": true,
+      "users": true,
+      "sites": true,
+      "functions": true,
+      "graphql": true,
+      "messaging": true
+    },
+    "auth": {
+      "methods": {
+        "jwt": true,
+        "phone": true,
+        "invites": true,
+        "anonymous": true,
+        "email-otp": true,
+        "magic-url": true,
+        "email-password": true
+      },
+      "security": {
+        "duration": 31536000,
+        "limit": 0,
+        "sessionsLimit": 10,
+        "passwordHistory": 0,
+        "passwordDictionary": false,
+        "personalDataCheck": false,
+        "sessionAlerts": false,
+        "mockNumbers": []
+      }
+    }
+  },
+  "tablesDB": [
     {
-      "$id": "generateContent",
-      "name": "Generate AI Content",
-      "enabled": true,
-      "live": true,
-      "logging": true,
-      "runtime": "node-18.0",
-      "deployment": "latest",
-      "vars": [
-        {
-          "key": "GEMINI_API_KEY",
-          "value": ""
-        }
-      ],
-      "events": [],
-      "schedule": "",
-      "timeout": 30,
-      "entrypoint": "generateContent.js",
-      "commands": "npm install",
-      "version": "v1",
-      "path": "functions/generateContent"
+      "$id": "69d75510000583ff35ea",
+      "name": "Creator Productivity AI",
+      "enabled": true
     }
   ],
-  "projectId": "",
-  "endpoint": "https://cloud.appwrite.io/v1",
-  "sites": [],
-  "tablesDB": [],
-  "tables": [],
-  "buckets": [],
+  "tables": [
+    {
+      "$id": "users",
+      "name": "users",
+      "databaseId": "69d75510000583ff35ea",
+      "enabled": true,
+      "columns": [
+        { "key": "email", "type": "string", "required": false, "size": 255 },
+        { "key": "name", "type": "string", "required": false, "size": 255 },
+        { "key": "avatar", "type": "string", "required": false, "size": 255 },
+        { "key": "role", "type": "string", "required": false, "size": 50 },
+        { "key": "ideasGenerated", "type": "integer", "required": false },
+        { "key": "scriptsGenerated", "type": "integer", "required": false }
+      ]
+    },
+    {
+      "$id": "ideas",
+      "name": "ideas",
+      "databaseId": "69d75510000583ff35ea",
+      "enabled": true,
+      "columns": [
+        { "key": "userId", "type": "string", "required": false, "size": 255 },
+        { "key": "niche", "type": "string", "required": false, "size": 255 },
+        { "key": "title", "type": "string", "required": false, "size": 255 },
+        { "key": "hook", "type": "string", "required": false, "size": 500 },
+        {
+          "key": "description",
+          "type": "string",
+          "required": false,
+          "size": 2000
+        },
+        { "key": "category", "type": "string", "required": false, "size": 255 },
+        { "key": "saved", "type": "boolean", "required": false }
+      ]
+    },
+    {
+      "$id": "scripts",
+      "name": "scripts",
+      "databaseId": "69d75510000583ff35ea",
+      "enabled": true,
+      "columns": [
+        { "key": "userId", "type": "string", "required": false, "size": 255 },
+        { "key": "ideaId", "type": "string", "required": false, "size": 255 },
+        { "key": "title", "type": "string", "required": false, "size": 255 },
+        { "key": "content", "type": "string", "required": false, "size": 5000 },
+        { "key": "type", "type": "string", "required": false, "size": 50 },
+        { "key": "duration", "type": "integer", "required": false },
+        { "key": "wordCount", "type": "integer", "required": false },
+        { "key": "saved", "type": "boolean", "required": false }
+      ]
+    },
+    {
+      "$id": "plans",
+      "name": "plans",
+      "databaseId": "69d75510000583ff35ea",
+      "enabled": true,
+      "columns": [
+        { "key": "userId", "type": "string", "required": false, "size": 255 },
+        { "key": "title", "type": "string", "required": false, "size": 255 },
+        {
+          "key": "description",
+          "type": "string",
+          "required": false,
+          "size": 2000
+        },
+        { "key": "dueDate", "type": "string", "required": false, "size": 255 },
+        { "key": "status", "type": "string", "required": false, "size": 50 },
+        { "key": "scriptId", "type": "string", "required": false, "size": 255 },
+        { "key": "ideaId", "type": "string", "required": false, "size": 255 }
+      ]
+    },
+    {
+      "$id": "focus_sessions",
+      "name": "focus_sessions",
+      "databaseId": "69d75510000583ff35ea",
+      "enabled": true,
+      "columns": [
+        { "key": "userId", "type": "string", "required": false, "size": 255 },
+        { "key": "duration", "type": "integer", "required": false },
+        {
+          "key": "sessionName",
+          "type": "string",
+          "required": false,
+          "size": 255
+        },
+        { "key": "breakInterval", "type": "integer", "required": false },
+        { "key": "completedAt", "type": "datetime", "required": false }
+      ]
+    },
+    {
+      "$id": "streaks",
+      "name": "streaks",
+      "databaseId": "69d75510000583ff35ea",
+      "enabled": true,
+      "columns": [
+        { "key": "userId", "type": "string", "required": false, "size": 255 },
+        { "key": "currentStreak", "type": "integer", "required": false },
+        { "key": "longestStreak", "type": "integer", "required": false },
+        { "key": "totalPosts", "type": "integer", "required": false },
+        { "key": "productivityScore", "type": "double", "required": false },
+        { "key": "lastActivityDate", "type": "datetime", "required": false }
+      ]
+    }
+  ],
+  "buckets": [
+    {
+      "$id": "avatars",
+      "name": "avatars",
+      "enabled": true,
+      "fileSecurity": true,
+      "maximumFileSize": 5242880
+    }
+  ],
   "teams": [],
   "topics": []
 }

@@ -31,7 +31,7 @@ Keep it engaging and ready-to-shoot.`;
 
     // Call Gemini API
     const response = await fetch(
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent",
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent",
       {
         method: "POST",
         headers: {
