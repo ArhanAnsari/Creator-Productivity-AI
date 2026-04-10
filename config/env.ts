@@ -2,9 +2,9 @@ const ENV = {
   appwrite: {
     endpoint:
       process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT ||
-      "https://cloud.appwrite.io/v1",
-    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID || "",
-    databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID || "",
+      "https://fra.cloud.appwrite.io/v1",
+    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID || "69d615110031fe23e7ca",
+    databaseId: process.env.EXPO_PUBLIC_APPWRITE_DATABASE_ID || "69d75510000583ff35ea",
   },
   gemini: {
     apiKey: process.env.EXPO_PUBLIC_GEMINI_API_KEY || "",

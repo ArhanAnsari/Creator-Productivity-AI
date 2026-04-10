@@ -1,164 +1,520 @@
 {
-  "projectId": "69d615110031fe23e7ca",
-  "projectName": "Creator Productivity AI",
-  "endpoint": "https://fra.cloud.appwrite.io/v1",
-  "settings": {
-    "services": {
-      "account": true,
-      "avatars": true,
-      "databases": true,
-      "locale": true,
-      "health": true,
-      "storage": true,
-      "teams": true,
-      "users": true,
-      "sites": true,
-      "functions": true,
-      "graphql": true,
-      "messaging": true
-    },
-    "auth": {
-      "methods": {
-        "jwt": true,
-        "phone": true,
-        "invites": true,
-        "anonymous": true,
-        "email-otp": true,
-        "magic-url": true,
-        "email-password": true
-      },
-      "security": {
-        "duration": 31536000,
-        "limit": 0,
-        "sessionsLimit": 10,
-        "passwordHistory": 0,
-        "passwordDictionary": false,
-        "personalDataCheck": false,
-        "sessionAlerts": false,
-        "mockNumbers": []
-      }
-    }
-  },
-  "tablesDB": [
-    {
-      "$id": "69d75510000583ff35ea",
-      "name": "Creator Productivity AI",
-      "enabled": true
-    }
-  ],
-  "tables": [
-    {
-      "$id": "users",
-      "name": "users",
-      "databaseId": "69d75510000583ff35ea",
-      "enabled": true,
-      "columns": [
-        { "key": "email", "type": "string", "required": false, "size": 255 },
-        { "key": "name", "type": "string", "required": false, "size": 255 },
-        { "key": "avatar", "type": "string", "required": false, "size": 255 },
-        { "key": "role", "type": "string", "required": false, "size": 50 },
-        { "key": "ideasGenerated", "type": "integer", "required": false },
-        { "key": "scriptsGenerated", "type": "integer", "required": false }
-      ]
-    },
-    {
-      "$id": "ideas",
-      "name": "ideas",
-      "databaseId": "69d75510000583ff35ea",
-      "enabled": true,
-      "columns": [
-        { "key": "userId", "type": "string", "required": false, "size": 255 },
-        { "key": "niche", "type": "string", "required": false, "size": 255 },
-        { "key": "title", "type": "string", "required": false, "size": 255 },
-        { "key": "hook", "type": "string", "required": false, "size": 500 },
-        {
-          "key": "description",
-          "type": "string",
-          "required": false,
-          "size": 2000
+    "projectId": "69d615110031fe23e7ca",
+    "projectName": "Creator Productivity AI",
+    "endpoint": "https://fra.cloud.appwrite.io/v1",
+    "settings": {
+        "services": {
+            "account": true,
+            "avatars": true,
+            "databases": true,
+            "locale": true,
+            "health": true,
+            "storage": true,
+            "teams": true,
+            "users": true,
+            "sites": true,
+            "functions": true,
+            "graphql": true,
+            "messaging": true
         },
-        { "key": "category", "type": "string", "required": false, "size": 255 },
-        { "key": "saved", "type": "boolean", "required": false }
-      ]
+        "auth": {
+            "methods": {
+                "jwt": true,
+                "phone": true,
+                "invites": true,
+                "anonymous": true,
+                "email-otp": true,
+                "magic-url": true,
+                "email-password": true
+            },
+            "security": {
+                "duration": 31536000,
+                "limit": 0,
+                "sessionsLimit": 10,
+                "passwordHistory": 0,
+                "passwordDictionary": false,
+                "personalDataCheck": false,
+                "sessionAlerts": false,
+                "mockNumbers": []
+            }
+        }
     },
-    {
-      "$id": "scripts",
-      "name": "scripts",
-      "databaseId": "69d75510000583ff35ea",
-      "enabled": true,
-      "columns": [
-        { "key": "userId", "type": "string", "required": false, "size": 255 },
-        { "key": "ideaId", "type": "string", "required": false, "size": 255 },
-        { "key": "title", "type": "string", "required": false, "size": 255 },
-        { "key": "content", "type": "string", "required": false, "size": 5000 },
-        { "key": "type", "type": "string", "required": false, "size": 50 },
-        { "key": "duration", "type": "integer", "required": false },
-        { "key": "wordCount", "type": "integer", "required": false },
-        { "key": "saved", "type": "boolean", "required": false }
-      ]
-    },
-    {
-      "$id": "plans",
-      "name": "plans",
-      "databaseId": "69d75510000583ff35ea",
-      "enabled": true,
-      "columns": [
-        { "key": "userId", "type": "string", "required": false, "size": 255 },
-        { "key": "title", "type": "string", "required": false, "size": 255 },
+    "tablesDB": [
         {
-          "key": "description",
-          "type": "string",
-          "required": false,
-          "size": 2000
-        },
-        { "key": "dueDate", "type": "string", "required": false, "size": 255 },
-        { "key": "status", "type": "string", "required": false, "size": 50 },
-        { "key": "scriptId", "type": "string", "required": false, "size": 255 },
-        { "key": "ideaId", "type": "string", "required": false, "size": 255 }
-      ]
-    },
-    {
-      "$id": "focus_sessions",
-      "name": "focus_sessions",
-      "databaseId": "69d75510000583ff35ea",
-      "enabled": true,
-      "columns": [
-        { "key": "userId", "type": "string", "required": false, "size": 255 },
-        { "key": "duration", "type": "integer", "required": false },
+            "$id": "69d75510000583ff35ea",
+            "name": "Creator Productivity AI",
+            "enabled": true
+        }
+    ],
+    "tables": [
         {
-          "key": "sessionName",
-          "type": "string",
-          "required": false,
-          "size": 255
+            "$id": "users",
+            "$permissions": [],
+            "databaseId": "69d75510000583ff35ea",
+            "name": "users",
+            "enabled": true,
+            "rowSecurity": false,
+            "columns": [
+                {
+                    "key": "email",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "name",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "avatar",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "role",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "createdAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                },
+                {
+                    "key": "ideasGenerated",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "scriptsGenerated",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                }
+            ],
+            "indexes": []
         },
-        { "key": "breakInterval", "type": "integer", "required": false },
-        { "key": "completedAt", "type": "datetime", "required": false }
-      ]
-    },
-    {
-      "$id": "streaks",
-      "name": "streaks",
-      "databaseId": "69d75510000583ff35ea",
-      "enabled": true,
-      "columns": [
-        { "key": "userId", "type": "string", "required": false, "size": 255 },
-        { "key": "currentStreak", "type": "integer", "required": false },
-        { "key": "longestStreak", "type": "integer", "required": false },
-        { "key": "totalPosts", "type": "integer", "required": false },
-        { "key": "productivityScore", "type": "double", "required": false },
-        { "key": "lastActivityDate", "type": "datetime", "required": false }
-      ]
-    }
-  ],
-  "buckets": [
-    {
-      "$id": "avatars",
-      "name": "avatars",
-      "enabled": true,
-      "fileSecurity": true,
-      "maximumFileSize": 5242880
-    }
-  ],
-  "teams": [],
-  "topics": []
+        {
+            "$id": "focus_sessions",
+            "$permissions": [],
+            "databaseId": "69d75510000583ff35ea",
+            "name": "focus_sessions",
+            "enabled": true,
+            "rowSecurity": false,
+            "columns": [
+                {
+                    "key": "userId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "duration",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "sessionName",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "breakInterval",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "completedAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                },
+                {
+                    "key": "createdAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "plans",
+            "$permissions": [],
+            "databaseId": "69d75510000583ff35ea",
+            "name": "plans",
+            "enabled": true,
+            "rowSecurity": false,
+            "columns": [
+                {
+                    "key": "userId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "title",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "description",
+                    "type": "text",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "dueDate",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                },
+                {
+                    "key": "status",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "scriptId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "ideaId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "createdAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "scripts",
+            "$permissions": [],
+            "databaseId": "69d75510000583ff35ea",
+            "name": "scripts",
+            "enabled": true,
+            "rowSecurity": false,
+            "columns": [
+                {
+                    "key": "userId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "ideaId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "title",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "content",
+                    "type": "text",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "type",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 50,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "duration",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "wordCount",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "saved",
+                    "type": "boolean",
+                    "required": false,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "createdAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "ideas",
+            "$permissions": [],
+            "databaseId": "69d75510000583ff35ea",
+            "name": "ideas",
+            "enabled": true,
+            "rowSecurity": false,
+            "columns": [
+                {
+                    "key": "userId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "niche",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "title",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "hook",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 500,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "description",
+                    "type": "text",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "category",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "saved",
+                    "type": "boolean",
+                    "required": false,
+                    "array": false,
+                    "default": null
+                },
+                {
+                    "key": "createdAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                }
+            ],
+            "indexes": []
+        },
+        {
+            "$id": "streaks",
+            "$permissions": [],
+            "databaseId": "69d75510000583ff35ea",
+            "name": "streaks",
+            "enabled": true,
+            "rowSecurity": false,
+            "columns": [
+                {
+                    "key": "userId",
+                    "type": "varchar",
+                    "required": false,
+                    "array": false,
+                    "size": 255,
+                    "default": null,
+                    "encrypt": false
+                },
+                {
+                    "key": "currentStreak",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "longestStreak",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "totalPosts",
+                    "type": "integer",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -9223372036854775808,
+                    "max": 9223372036854775807
+                },
+                {
+                    "key": "lastActivityDate",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                },
+                {
+                    "key": "updatedAt",
+                    "type": "datetime",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "format": ""
+                },
+                {
+                    "key": "productivityScore",
+                    "type": "double",
+                    "required": false,
+                    "array": false,
+                    "default": null,
+                    "min": -1.7976931348623157e+308,
+                    "max": 1.7976931348623157e+308
+                }
+            ],
+            "indexes": []
+        }
+    ],
+    "buckets": [
+        {
+            "$id": "avatars",
+            "$permissions": [],
+            "fileSecurity": true,
+            "name": "avatars",
+            "enabled": true,
+            "maximumFileSize": 5242880,
+            "allowedFileExtensions": [],
+            "compression": "none",
+            "encryption": true,
+            "antivirus": true
+        }
+    ]
 }

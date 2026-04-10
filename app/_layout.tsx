@@ -1,3 +1,4 @@
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import { useAuthStore } from "@/store/authStore";
 import {
@@ -16,37 +17,48 @@ export const unstable_settings = {
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
-  const { checkAuth, isAuthenticated } = useAuthStore();
+  const { checkAuth, isAuthenticated, isLoading } = useAuthStore();
 
   useEffect(() => {
-    checkAuth();
-  }, []);
+    const initializeAuth = async () => {
+      try {
+        await checkAuth();
+      } catch (error) {
+        console.error("Auth check failed:", error);
+        // Continue anyway - user will be taken to auth screen
+      }
+    };
+    initializeAuth();
+  }, [checkAuth]);
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack
-        screenOptions={{
-          headerShown: false,
-          cardStyle: {
-            backgroundColor: colorScheme === "dark" ? "#0f172a" : "#fff",
-          },
-        }}
-      >
-        <Stack.Screen
-          name="(auth)"
-          options={{
+      {isLoading ? (
+        <LoadingScreen message="Initializing app..." />
+      ) : (
+        <Stack
+          screenOptions={{
             headerShown: false,
-            animationEnabled: isAuthenticated ? false : true,
+            cardStyle: {
+              backgroundColor: colorScheme === "dark" ? "#0f172a" : "#fff",
+            },
           }}
-        />
-        <Stack.Screen
-          name="(tabs)"
-          options={{
-            headerShown: false,
-            animationEnabled: !isAuthenticated ? false : true,
-          }}
-        />
-      </Stack>
+          initialRouteName={isAuthenticated ? "(tabs)" : "(auth)"}
+        >
+          <Stack.Screen
+            name="(auth)"
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="(tabs)"
+            options={{
+              headerShown: false,
+            }}
+          />
+        </Stack>
+      )}
       <StatusBar style={colorScheme === "dark" ? "light" : "dark"} />
     </ThemeProvider>
   );

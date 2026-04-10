@@ -64,8 +64,15 @@ export const useAuthStore = create<AuthState>((set) => ({
       } else {
         set({ user: null, isAuthenticated: false, isLoading: false });
       }
-    } catch (error) {
-      set({ user: null, isAuthenticated: false, isLoading: false });
+    } catch (error: any) {
+      console.error("Auth check error:", error);
+      // Default to not authenticated on error
+      set({
+        user: null,
+        isAuthenticated: false,
+        isLoading: false,
+        error: error.message || "Auth check failed",
+      });
     }
   },
 
